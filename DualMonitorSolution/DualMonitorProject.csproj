@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1D24223B-9D7C-4090-9C34-2082B877DA09}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DualMonitor</RootNamespace>
+    <AssemblyName>DualMonitor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>H:\Utils\DualMonitorSolution\Share\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\multiple_monitors.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DualMonitor.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>12539F5154A0600B0F9AA42F1EF77AAD0EBD5911</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>DualMonitorProject_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TaskbarList">
+      <HintPath>ComFiles\TaskbarList.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoHideMonitor.cs" />
+    <Compile Include="AutostartUtil.cs" />
+    <Compile Include="AutoUpdateManager.cs" />
+    <Compile Include="ClockPanelProxy.cs" />
+    <Compile Include="Controls\BorderedTransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\LiveThumbnail.cs" />
+    <Compile Include="Controls\MoreIconsButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NotificationAreaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NotificationIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ShowDesktopButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Entities\CustomFont.cs" />
+    <Compile Include="Entities\DelayedAction.cs" />
+    <Compile Include="Entities\NotificationIconInfo.cs" />
+    <Compile Include="Entities\ProcessFullPath.cs" />
+    <Compile Include="Entities\ProcessGroup.cs" />
+    <Compile Include="Entities\ProcessGroupManager.cs" />
+    <Compile Include="Entities\TaskbarProgress.cs" />
+    <Compile Include="Entities\Win32Window.cs" />
+    <Compile Include="Forms\CloseButtonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CloseButtonForm.Designer.cs">
+      <DependentUpon>CloseButtonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DualMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DualMonitorForm.Designer.cs">
+      <DependentUpon>DualMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewVersionAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewVersionAlert.Designer.cs">
+      <DependentUpon>NewVersionAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PerPixelAlphaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartButton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartButton.Designer.cs">
+      <DependentUpon>StartButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicUtils\GraphicsExtensions.cs" />
+    <Compile Include="GraphicUtils\Utils.cs" />
+    <Compile Include="MultiMonitorManager.cs" />
+    <Compile Include="NotificationAreaProxy.cs" />
+    <Compile Include="RegistryProxy.cs" />
+    <Compile Include="Rules\BaseRuleAction.cs" />
+    <Compile Include="Rules\MoveRuleAction.cs" />
+    <Compile Include="RunningTasksProxy.cs" />
+    <Compile Include="SystemMenuProxy.cs" />
+    <Compile Include="TaskSwitcherProxy.cs" />
+    <Compile Include="VisualStyle\AeroDecorator.cs" />
+    <Compile Include="VisualStyle\BackgroundDecorator.cs" />
+    <Compile Include="VisualStyle\ButtonBorderDecorator.cs" />
+    <Compile Include="VisualStyle\GlassButtonDecorator.cs" />
+    <Compile Include="VisualStyle\HighlightDecorator.cs" />
+    <Compile Include="VisualStyle\HotTrackDecorator.cs" />
+    <Compile Include="VisualStyle\OneBorderDecorator.cs" />
+    <Compile Include="VisualStyle\ProgressBarDecorator.cs" />
+    <Compile Include="VisualStyle\PushPanelDecorator.cs" />
+    <Compile Include="Rules\RuleActionFactory.cs" />
+    <Compile Include="Entities\Rule.cs" />
+    <Compile Include="Rules\RuleManager.cs" />
+    <Compile Include="Forms\PropertiesWindow.Rules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectProgram.Designer.cs">
+      <DependentUpon>SelectProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\DwmApi.cs" />
+    <Compile Include="Win32\IPCNative.cs" />
+    <Compile Include="Win32\SendInput.cs" />
+    <Compile Include="Win32\COMInterfaces.cs" />
+    <Compile Include="Controls\BaseTaskbarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\BaseTaskbarButton.Designer.cs">
+      <DependentUpon>BaseTaskbarButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClockPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ClockPanel.Designer.cs">
+      <DependentUpon>ClockPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResizePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ResizePanel.Designer.cs">
+      <DependentUpon>ResizePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StartMenuPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\StartMenuPanel.Designer.cs">
+      <DependentUpon>StartMenuPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaskbarFlow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskbarFlow.Designer.cs">
+      <DependentUpon>TaskbarFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaskbarPinnedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskbarPinnedButton.Designer.cs">
+      <DependentUpon>TaskbarPinnedButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Entities\Constants.cs" />
+    <Compile Include="Entities\PinnedApp.cs" />
+    <Compile Include="Entities\SyncProcessCache.cs" />
+    <Compile Include="GraphicUtils\Extensions.cs" />
+    <Compile Include="Win32\Native.cs" />
+    <Compile Include="PinnedManager.cs" />
+    <Compile Include="ProcessMonitor.cs" />
+    <Compile Include="Forms\PropertiesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PropertiesWindow.Designer.cs">
+      <DependentUpon>PropertiesWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicUtils\RoundedRectangles.cs" />
+    <Compile Include="Entities\TaskbarProperties.cs" />
+    <Compile Include="ProcessUtil.cs" />
+    <Compile Include="ShortcutUtil.cs" />
+    <Compile Include="TaskbarPropertiesManager.cs" />
+    <Compile Include="Forms\SecondaryTaskbar.Appbar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SecondaryTaskbar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SecondaryTaskbar.Designer.cs">
+      <DependentUpon>SecondaryTaskbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\SecondDisplayProcess.cs" />
+    <Compile Include="Controls\TaskbarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskbarButton.Designer.cs">
+      <DependentUpon>TaskbarButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Theme.cs" />
+    <Compile Include="Forms\ToolTipWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ToolTipWindow.Designer.cs">
+      <DependentUpon>ToolTipWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolTipManager.cs" />
+    <Compile Include="WindowManager.cs" />
+    <EmbeddedResource Include="Controls\ClockPanel.resx">
+      <DependentUpon>ClockPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CloseButtonForm.resx">
+      <DependentUpon>CloseButtonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DualMonitorForm.resx">
+      <DependentUpon>DualMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewVersionAlert.resx">
+      <DependentUpon>NewVersionAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PropertiesWindow.resx">
+      <DependentUpon>PropertiesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SecondaryTaskbar.resx">
+      <DependentUpon>SecondaryTaskbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectProgram.resx">
+      <DependentUpon>SelectProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\ToolTipWindow.resx">
+      <DependentUpon>ToolTipWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pin.png" />
+    <None Include="Resources\unpin.png" />
+    <Content Include="ComFiles\taskbar.idl" />
+    <Content Include="license.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\start_big_active.png" />
+    <None Include="Resources\Badge-multiply.png" />
+    <None Include="Resources\Badge-plus.png" />
+    <None Include="Resources\find_window_normal.png" />
+    <None Include="Resources\find_window_used.png" />
+    <None Include="Resources\searchw.cur" />
+    <None Include="Resources\more_classic_down.png" />
+    <None Include="Resources\more_classic_left.png" />
+    <None Include="Resources\more_classic_right.png" />
+    <Content Include="Resources\more_classic_up.png" />
+    <None Include="Resources\start_classic.png" />
+    <None Include="Resources\show_dekstop_horizontal.png" />
+    <None Include="Resources\show_desktop_horizontal.png" />
+    <None Include="Resources\show_desktop_classic.png" />
+    <None Include="Resources\multiple_monitors.png" />
+    <Content Include="Resources\show_desktop_vertical.png" />
+    <Content Include="ThingsToTest.txt" />
+    <None Include="Resources\start_small_normal.png" />
+    <None Include="Resources\start_small_hover.png" />
+    <None Include="Resources\start_big_hover.png" />
+    <None Include="Resources\start_big_normal.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\close_hover.png" />
+    <Content Include="Changes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\multiple_monitors.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gma.UserActivityMonitor\Gma.UserActivityMonitor.csproj">
+      <Project>{F52AA97E-180A-40ED-8F2B-09080171D6C7}</Project>
+      <Name>Gma.UserActivityMonitor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

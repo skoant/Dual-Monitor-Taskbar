@@ -1,0 +1,227 @@
+﻿*** Version 1.22.021813
+	New
+	- Multi monitor support
+	- Customizable auto-hide speed
+	- Added link to DMT project home page in Properties window
+	Bug
+	- Unhide taskbar if a program flashes its icon
+	- Fixed out of sync clock
+	- Take min button width from Registry (thanks jslick for this - https://sourceforge.net/users/jslick18/)
+	- Fix some memory leaks (thanks jslick for this - https://sourceforge.net/users/jslick18/)
+
+*** Version 1.21.091112
+	New
+	- Show current version in Properties window
+	- Setup file name contains version number now
+	Bug
+	- Stability improvements - Fixed some random crashes
+
+*** Version 1.20.082812
+	Bug
+	- Bugs with extra buttons appearing in the taskbar and causing crashes.
+	- Bug #3560638: fixed crash on every start (some scenarios).
+	New
+	- #3557809: ability to change rule names
+
+*** Version 1.19.081012
+	Bug
+	- Bug #3538211: avoid exception on non-TrueType fonts. May be a limitation in Windows Forms, for now I just handle the exception nicely.
+	- Bug #3538272: handle stuck (frozen) applications
+	- Bug #3551915: some fixes when clicking on Start Menu button.
+	- Bug #3555271: if short time format includes seconds (Regional Settings), update clock every second.
+	- Feature #3555154: show application title above aero thumbnail preview
+
+*** Version 1.18.042612
+	New
+	- Feature Request #3521379: 
+		Use aero preview delay (HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ThumbnailLivePreviewHoverTime)
+		Keep preview window active when moving to adjacent app
+		Show window title on mouse hover (not quite like the original taskbar, but I think it helps)
+	- Feature Request #3518012:
+		When pinning application, save command line arguments
+		When pinning a TXT file (or other document) by drag & drop, we actually pin Notepad.exe (or default program that opens that document) 
+		with the TXT file as argument. So every time you use the pin button to launch the process, you will open notepad with the TXT file.
+	- Feature Request #3452511
+		Use registry setting HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ExtendedUIHoverTime. 
+		If this value is higher than 2000, live previews are disabled
+	Bug
+	- Bug #3521053: ClearType for glass. Doesn't look perfect, but I added some form of antialiasing.
+
+*** Version 1.17.040912
+	New
+	- Feature Request #3516079: Wait for second monitor to become available. Also, if the second monitor is disabled, DMT will wait for it to be enabled again.
+
+*** Version 1.16.040212
+	Bug
+	- Fix for auto hide (#3514081)
+
+*** Version 1.15.033012
+	New
+	- Added 'check for updates' option. You will be notified when a new version is available.
+
+*** Version 1.14.032812
+	New
+	- new 'Show Desktop' button - will only minimize/restore windows from the monitor with the DualMonitorTaskbar. The main taskbar's 'Show Desktop' button will affect all windows. I'll try to change that if I find a way.
+	- Fixed some bugs: 3477585 & 3469288(crashes when program is closed), 3504419 (fix for auto hide)
+
+*** Version 1.13.020612
+	New
+	- Option to minimize windows from screen
+	- Installer works for non-admin users. Choose a path where you have write permission.
+
+*** Version 1.12.012012
+	New
+	- Option to use custom font
+
+*** Version 1.11.112511
+	Bug fixes
+	- #3434532, #3436144 (partial), #3441081, #3438720
+
+*** Version 1.10.110411
+	New
+	- Reorder buttons on the taskbar by dragging them 
+
+*** Version 1.09.102811
+	New
+	- Support for classic Windows theme
+
+*** Version 1.08.092111
+	Bug fixes
+	New
+	- Start menu (beta)
+
+*** Version 1.07.090111
+	Bugs:
+	- From SourceForge site: 3392467 (error from window manager rules), 3394752 (multiple notification icons for task manager)
+
+*** Version 1.07.080311
+	Bugs:
+	- From SourceForge site: 3383957 (notification area won't hide), 3383794 (dll error on startup)
+	New
+	- Windows 7 Taskbar features: Support for progress bar and icon overlays - http://msdn.microsoft.com/en-us/library/dd378460(v=vs.85).aspx
+
+*** Version 1.06.080111
+	Bugs:
+	- fixed notification area for 32 bits Windows
+
+*** Version 1.06.072811
+	Bugs:
+	- auto hide mode: fix UI bug for notification area
+	- auto hide mode: should not hide while moving taskbar to edges
+	Known issue:
+	- left and right click doesn't work in notification area on 32 bits Windows
+
+*** Version 1.06.072611
+	New:
+	- Notification area
+
+*** Version 1.05.071111
+	Fixes:
+	- Fix window rule - compare program path (including DOS 8.3 characters paths)
+	- Detect icon change and update button
+	- Aero mode: show close button in tooltip window, over live thumbnail
+	New:
+	- Live previews (in aero mode - roll over tooltip window to activate it)
+	- Middle click on tooltip window will close window
+	- Right click on tooltip window will show context menu
+	- New taskbar buttons design
+	- Hot Tracking (calculate button's color when mouse rolls over based on its icon) + animation (if Taskbar Animations are enabled)
+
+*** Version 1.04.070411
+	Fixes:
+	- minimize & restore on some machines
+	- reposition and resize on resolution change
+	- window manager - move to monitor rules - when window appears minimized
+	New:
+	- auto hide option
+
+*** Version 1.03.062811
+	Bug Fixes
+	New:
+	- taskbar preview (when aero is activated)
+
+*** Version 1.02.062711
+	Bug Fixes
+
+*** Version 1.02.062411
+	Fixes:
+	- icons without label don't resize well when taskbar is docked vertically (#3325025)
+	New:
+	- click on clock panel now shows clock
+	- aero support
+	- window management - automatically move windows to specific screen
+	- option to mirror the main taskbar's buttons
+
+*** Version 1.01.062211
+	Fixes:
+	- taskbar hangs when closing an application from context menu until "Are you sure" message is closed
+	New:
+	- drag & drop over taskbar button - it will activate window so you can drop inside
+	- move taskbar to top, left, right, bottom positions
+	- taskbar resize
+	- detect FlashWindow event - flash button in taskbar
+	- drop files on the taskbar to pin their associated program
+
+*** Version 1.00.061711
+	New:
+	- show ALT+TAB task switcher on the screen that has the mouse cursor
+
+*** Version 1.00.061511
+	Fixes:
+	- change button UI on click
+	- on first load, read "Use small icons" setting from main taskbar
+
+	New:
+	- pinned programs
+
+*** 10 June 2011
+	Fixes:
+	- fix detection of visible windows
+	- will not start with 1 monitor
+	- detects when second monitor is deactivated (either manually or by remote desktop login) and waits for it to be activated again
+
+*** 09 June 2011
+	Fixes:
+	- fix full screen detection
+	- fix close window (when using multiple firefox windows, would randomly close one of them)
+
+*** 08 June 2011
+	Fixes:
+	- detect window open directly on second monitor (problems with some programs like Chrome)
+	- fix crash trying to delete missing key in registry (related to "Automatically start with Windows")
+	- fix screen detection for minimizing application
+	- fix taskbar flicker in specific scenario
+
+*** 07 June 2011
+	Fixes:
+	- detect fullscreen window and hide taskbar
+	- added Start button (beta)
+
+	New:
+	- Lock/Unlock taskbar - can resize if unlocked (POSTPONED)
+
+*** 01 June 2011
+	Fixes:
+	- button 'tooltip' doesn't hide sometimes
+	- click button doesn't work sometimes
+	- increased delay on 'tooltip' show
+
+*** 30 May 2011
+	Fixes:
+	- screen detection
+	- added tooltip and context menu for clock
+
+*** 27 May 2011
+	Fixes:
+	- detection of window caption change in both displays
+	- detection of windows to display in secondary taskbar
+	- close context menus if focus is changed
+	- use small icon in tooltip
+	- remove from taskbar windows like Outlook or Yahoo (that hide to tray when minimized or closed)
+
+	New:
+	- clock, detect clock change
+	- launch command in button's context menu
+	- launch another instance with SHIFT+Click or Middle Click
+
+

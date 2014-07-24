@@ -1,0 +1,43 @@
+//////////////////////////ITaskbarList.idl////////////////////////////
+
+[
+   uuid(C52C7F93-54B9-11D3-ABF9-0040F6A4BFEC),
+   version(1.0),
+   helpstring("ITaskbarList - shell32")
+]
+library TaskbarList
+{
+    // TLib: //TLib: OLE Automation: {00020430-0000-0000-C000-000000000046}
+
+    importlib("stdole2.tlb");
+    // Forward declare all types defined in this typelib
+
+    interface ITaskbarList;
+    [
+       odl,
+       uuid(56FDF342-FD6D-11D0-958A-006097C9A090),
+       helpstring("ITaskbarList interface")
+    ]
+    interface ITaskbarList : IUnknown 
+    {
+        [helpstring("This function must be called first to validate use of other members.")]
+        HRESULT _stdcall HrInit();
+        [helpstring("This function adds a tab for hwnd to the taskbar.")]
+        HRESULT _stdcall AddTab([in] long hwnd);
+        [helpstring("This function deletes a tab for hwnd from the taskbar.")]
+        HRESULT _stdcall DeleteTab([in] long hwnd);
+        [helpstring("This function activates the tab associated with hwnd on the taskbar.")]
+        HRESULT _stdcall ActivateTab([in] long hwnd);
+        [helpstring("This function marks hwnd in the taskbar as the active tab.")]
+        HRESULT _stdcall SetActivateAlt([in] long hwnd);
+    };
+    [
+       uuid(56FDF344-FD6D-11D0-958A-006097C9A090),
+       helpstring("TaskbarList class")
+    ]
+    coclass TaskbarList 
+    {
+       [default] interface ITaskbarList;
+    };
+};
+////////////////////////////////////////////////////////////////////////
